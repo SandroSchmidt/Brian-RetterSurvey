@@ -1,25 +1,177 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Fragebogen Gewalt im Rettungsdienst</title>
-    </head>
-    <body>
-        <div style="margin-top:100px;margin-left:100px">
-           <h1> Begrüßungstext: bla bla bla</h1>
-            Hier stellen wir ihnen die erste Frage? -	 0<input id="slider1" min=0 max=10 step=1 type="range">10 <br>
-            Wie finden sie diesen Fragebogen....?  0<input id="slider1" min=0 max=10 step=1 type="range">10 <br>
-            Bla bla bla, noch eine Frage ? 0<input id="slider1" min=0 max=10 step=1 type="range">10 <br>
-            Bla bla bla, noch eine Frage ? 0<input id="slider1" min=0 max=10 step=1 type="range">10 <br>
-            Bla bla bla, noch eine Frage ? 0<input id="slider1" min=0 max=10 step=1 type="range">10 <br>
-            Bla bla bla, noch eine Frage ? 0<input id="slider1" min=0 max=10 step=1 type="range">10 <br>
-            Bla bla bla, noch eine Frage ? 0<input id="slider1" min=0 max=10 step=1 type="range">10 <br>
-            Bla bla bla, noch eine Frage ? 0<input id="slider1" min=0 max=10 step=1 type="range">10 <br>
-            Bla bla bla, noch eine Frage ? 0<input id="slider1" min=0 max=10 step=1 type="range">10 <br>
-            
-            <input type="button" value ="Absenden!"> 
-        </div>
-    </body>
+<html lang="en">
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-firestore.js"></script>
+    
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <title>Fragebogen Gewalt im Rettungsdienst</title>
+</head>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+ th, td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+</style>
+<body>
+    <div style="margin-top: 100px; margin-left: 100px;">
+        <h1>Begrüßungstext: bla bla bla</h1>
+        <table>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(0,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(1,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(2,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(3,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(4,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(5,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(6,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(7,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(8,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(9,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(10,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(11,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(12,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(13,this.value)"/>10</td>       </tr>
+            <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(14,this.value)"/>10</td>       </tr>
+            <!-- Repeat for other questions -->
+        </table>
+        <br>
+        <br>
+        <input type="button" value="Absenden!" onclick="console.log(eingabe); writeToFirestore();this.remove()">
+       
+    </div>
+
     <script>
 
+        const options = {
+  day: 'numeric',
+  month: 'numeric',
+  year: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  hour12: false, // Use 24-hour format
+};
+
+
+
+        // Initialize array to store slider values
+        const eingabe = Array(15).fill(5);
+
+        // Function to update the input value in the array
+        function updateInputValue(a,b) {
+                 eingabe[a] = parseInt(b);
+        }
+
+        // Function to write data to Firestore
+        function writeToFirestore() {
+            const db = firebase.firestore();
+            const jetzt = new Date();
+
+            // Collection name
+            const collectionName = "gewaltimrett";
+
+            // Data you want to write to Firestore
+            const dataToWrite = {"input":eingabe,zeit:jetzt.getTime()};
+
+            // Add the data to Firestore
+            db.collection(collectionName).doc("T"+jetzt.getTime()).set(dataToWrite)
+                .then((docRef) => {
+                    console.log("Data was successfully written to Firestore with ID:");
+                })
+                .catch((error) => {
+                    console.error("Error writing data to Firestore:", error);
+                });
+        }
+        
+        document.addEventListener('keydown', function(event) {
+            // Get the key code
+            const keyCode = event.keyCode || event.which;
+
+            // Display the key code in the console
+            console.log('Key pressed:', keyCode);
+            if (keyCode == 65){readFromFirestore()}
+            // You can add your own logic here based on the key code
+        });
+
+
+
+        function readFromFirestore() {
+            d3.select('div').selectAll('*').remove()
+    const db = firebase.firestore();
+    const collectionName = "gewaltimrett";
+
+    // Reference to the collection
+    const collectionRef = db.collection(collectionName);
+
+    // Array to store the documents
+    const dataArray = [];
+
+    // Get all documents in the collection
+    collectionRef.get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // For each document, push its data to the array
+                dataArray.push(doc.data());
+            });
+            
+            d3.select('div').append('h2').text('Auswertung')
+            tab = d3.select('div').append('table')//.style('border',"solid")
+            tab.append('th').text("Nummer")
+            tab.append('th').text("Datum")
+            tab.append('th').text("Eingaben")
+            for (i=0;i<dataArray.length;i++){
+       
+        temp = new Date()
+        temp.setTime(parseInt(dataArray[i].zeit))
+    
+    
+  
+    tr = tab.append('tr')
+    tr.append('td').text(i)
+    tr.append('td').text(temp.toLocaleDateString('en-GB', options))
+    tr.append('td').text(dataArray[i].input)
+    
+
+
+
+}
+            // Log or process the array as needed
+            console.log("Data retrieved from Firestore:", dataArray);
+        })
+        .catch((error) => {
+            console.error("Error reading data from Firestore:", error);
+        });
+
+
+}
     </script>
+
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            
+apiKey: "AIzaSyC_RJfPnms2jKggAVpisjDO2HIxHSD7o8M",
+
+authDomain: "brianrett-9aa27.firebaseapp.com",
+
+projectId: "brianrett-9aa27",
+
+storageBucket: "brianrett-9aa27.appspot.com",
+
+messagingSenderId: "669858538697",
+
+appId: "1:669858538697:web:6eab4f1b6c0c38a0bc5918",
+
+measurementId: "G-YQHZHMGHPH"
+
+};
+
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</body>
 </html>
