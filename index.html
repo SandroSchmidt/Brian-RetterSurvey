@@ -16,11 +16,15 @@
   border: 1px solid;
   border-collapse: collapse;
 }
+body {
+            margin: 0;
+            overflow: hidden;
+        }
 </style>
 <body>
-    <div style="margin-top: 100px; margin-left: 100px;">
-        <h1>Begrüßungstext: bla bla bla</h1>
-        <table>
+    <div style="margin-top: 100px; margin-left: 100px;width: 100%;">
+        <h1 ondblclick="readFromFirestore()">Begrüßungstext: bla bla bla</h1>
+        <table style="border: none;">
             <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(0,this.value)"/>10</td>       </tr>
             <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(1,this.value)"/>10</td>       </tr>
             <tr>      <td>Hier stellen wir Ihnen die erste Frage? -</td>    <td>0<input id="slider0" min="0" max="10" value="5" step="1" type="range" onchange="updateInputValue(2,this.value)"/>10</td>       </tr>
